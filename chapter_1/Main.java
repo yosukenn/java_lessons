@@ -1,7 +1,7 @@
 public class Main {
   // 1 - 2
   static String fileNameFormatter(String folder, String file) {
-    if (!folder.endsWith("¥")) {
+    if (!folder.endsWith("¥")) { // エスケープシーケンスとして「¥」が機能しない（「\」ならする）のはなぜか。
       folder += "¥";
     }
     return folder + file;
