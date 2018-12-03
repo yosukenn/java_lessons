@@ -11,7 +11,7 @@ public class Main {
     // 1 - 1
     StringBuilder sb = new StringBuilder();
 
-    for(int i = 1; i < 101; i++) {
+    for(int i = 1; i <= 100; i++) {
       String num = String.format("%d,", i);
       sb.append(num);
     }
