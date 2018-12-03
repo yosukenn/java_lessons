@@ -1,8 +1,8 @@
 public class Main {
   // 1 - 2
   static String fileNameFormatter(String folder, String file) {
-    if (!folder.endsWith("¥")) { // エスケープシーケンスとして「¥」が機能しない（「\」ならする）のはなぜか。
-      folder += "¥";
+    if (!folder.endsWith("/")) { // エスケープシーケンスとして「¥」が機能しない（「\」ならする）のはなぜか。
+      folder += "/";
     }
     return folder + file;
   }
@@ -20,7 +20,7 @@ public class Main {
 
     String[] a = s.split(",");
 
-    System.out.println(fileNameFormatter("c:format", "readme.txt"));
+    System.out.println(fileNameFormatter("/format", "readme.txt"));
   }
 
   // 1 - 3
