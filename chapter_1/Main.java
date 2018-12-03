@@ -1,4 +1,12 @@
 public class Main {
+  // 1 - 2
+  static String fileNameFormatter(String folder, String file) {
+    if (!folder.endsWith("¥")) {
+      folder += "¥";
+    }
+    return folder + file;
+  }
+
   public static void main(String[] args) {
     // 1 - 1
     StringBuilder sb = new StringBuilder();
@@ -12,7 +20,11 @@ public class Main {
 
     String[] a = s.split(",");
 
-    // 1 - 2
-    
+    System.out.println(fileNameFormatter("c:format", "readme.txt"));
   }
+
+  // 1 - 3
+  // (1) .*
+  // (2) A[0-9]?
+  // (3) U[A-Z]{3}
 }
