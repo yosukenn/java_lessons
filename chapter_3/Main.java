@@ -15,5 +15,16 @@ public class Main {
       Hero h = it.next();
       System.out.println(h.getName());
     }
+
+    // 3 - 3
+    // それぞれの勇者が倒した敵の数(3, 7)を勇者とペアでコレクションに格納
+    Map<Hero, Integer> killboard = new HashMap<Hero, Integer>();
+    killboard.put(h1, 3);
+    killboard.put(h2, 7);
+    // １つずつ取り出し、指定のように画面表示してください
+    for(Hero key : killboard.keySet()) {
+      int defeatNum = killboard.get(key);
+      System.out.println(key.getName() + "が倒した敵＝" + defeatNum);
+    }
   }
 }
