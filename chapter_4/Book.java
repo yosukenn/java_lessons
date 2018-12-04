@@ -1,7 +1,7 @@
 import java.util.*;
 import java.time.*;
 
-public class Book implements Comparable<Book> {
+public class Book implements Comparable<Book>, Cloneable {
   private String title;
   private LocalDate publishDate;
   private String comment;
@@ -58,5 +58,9 @@ public class Book implements Comparable<Book> {
     return 0;
   }
 
-
+  @Override
+  public Book clone() {
+    Book result = new Book(this.title, this.publishDate, this.comment);
+    return result;
+  }
 }

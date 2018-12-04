@@ -31,6 +31,7 @@ public class Main {
       System.out.println(book.getTitle());
     }
 
-
+    // インスタンスの複製に感する検証
+    Book book4 = book1.clone();
   }
 }
