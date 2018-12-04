@@ -1,6 +1,8 @@
 import java.util.Calendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.time.*;
+import java.time.format.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -12,15 +14,24 @@ public class Main {
     c.setTime(now);
     // Calenderから「日」の数値を取得します
     int day = c.get(Calendar.DAY_OF_MONTH);
-    System.out.println(day);
     // 取得した値に100を足した値をCalendarの「日」にセットします
     c.set(Calendar.DAY_OF_MONTH, day + 100);
     // Calendarの日付情報をDate型に変換します
     Date future = c.getTime();
-    System.out.println(future);
     // SimpleDateFormatを用いて、指定された形式でDateインスタンスの内容を表示します
-    SimpleDateFormat f = new SimpleDateFormat("西暦yyyy年MM月dd日");
-    String s = f.format(future);
-    System.out.println(s);
+    SimpleDateFormat f1 = new SimpleDateFormat("西暦yyyy年MM月dd日");
+    String s1 = f1.format(future);
+    System.out.println(s1);
+
+    System.out.println("----------------------");
+
+    // 2 - 2
+    // 2 - 1 と同様の動作を行うプログラムをjava8以降で可能になったTime APIを用いて実装
+    LocalDateTime l = LocalDateTime.now();
+    l = l.plusDays(100);
+    DateTimeFormatter f2 = DateTimeFormatter.ofPattern("西暦yyyy年MM月dd日");
+    String s2 = l.format(f2);
+    System.out.println(s2);
+
   }
 }
