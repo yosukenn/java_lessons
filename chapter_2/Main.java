@@ -27,10 +27,10 @@ public class Main {
 
     // 2 - 2
     // 2 - 1 と同様の動作を行うプログラムをjava8以降で可能になったTime APIを用いて実装
-    LocalDateTime l = LocalDateTime.now();
-    l = l.plusDays(100);
+    LocalDate d = LocalDate.now();　// 2018-12-04
+    d = d.plusDays(100);
     DateTimeFormatter f2 = DateTimeFormatter.ofPattern("西暦yyyy年MM月dd日");
-    String s2 = l.format(f2);
+    String s2 = d.format(f2);
     System.out.println(s2);
 
   }
