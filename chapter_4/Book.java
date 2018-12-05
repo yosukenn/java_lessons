@@ -34,10 +34,11 @@ public class Book implements Comparable<Book>, Cloneable {
     if (o == null) return false;
     if (!(o instanceof Book)) return false;
     Book b = (Book) o;
-    if (!this.title.trim().equals(b.title.trim()) || !this.publishDate.equals(b.publishDate)) {
-      return false;
-    }
-    return true;
+    // if (!this.title.trim().equals(b.title.trim()) || !this.publishDate.equals(b.publishDate)) {
+    //   return false;
+    // }
+    // return true;
+    return this.title.trim().equals(b.title.trim()) || this.publishDate.equals(b.publishDate);
   }
 
   @Override
