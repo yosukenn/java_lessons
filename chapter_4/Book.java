@@ -26,6 +26,8 @@ public class Book implements Comparable<Book>, Cloneable {
     this.comment = comment;
   }
 
+  // 4 - 1
+  // 書名と発行日が同じであれば等価なものと判定され、かつ、HashSetなどに格納しても正しく利用できる
   @Override
   public boolean equals(Object o) {
     if (o == this) return true;
@@ -47,6 +49,8 @@ public class Book implements Comparable<Book>, Cloneable {
     return result;
   }
 
+  // 4 - 2
+  // Bookインスタンスを格納したコレクションに対して、「Collections.sort();」を飛び出すと、は後尾が古い順に並び替えられる
   @Override
   public int compareTo(Book obj) {
     if (this.publishDate.isBefore(obj.publishDate)) {
@@ -58,6 +62,8 @@ public class Book implements Comparable<Book>, Cloneable {
     return 0;
   }
 
+  // 4 - 3
+  // clone() を呼び出すと、深いコピーによる複製が行われる。
   @Override
   public Book clone() {
     Book result = new Book(this.title, this.publishDate, this.comment);

@@ -7,10 +7,10 @@ public class Main {
     Set<Book> list1 = new HashSet<Book>();
     LocalDate now = LocalDate.now();
     Book b1 = new Book("桃太郎", now, "桃である。");
-    list1.add(b1);
+    list1.add(b1);  // ここでb1の参照先のBookインスタンスがHashSetに格納される
     System.out.println("要素数=" + list1.size());
-    b1 = new Book("桃太郎", now, "桃である。"); // ただの条件
-    list1.remove(b1);
+    b1 = new Book("桃太郎", now, "桃である。");  // b1を等価で更新（参照先は変わる）
+    list1.remove(b1);                         // b1の参照先のインスタンスと等価なものを削除 
     System.out.println("要素数=" + list1.size());
 
     // インスタンスの順序づけの検証
@@ -33,5 +33,7 @@ public class Main {
 
     // インスタンスの複製に感する検証
     Book book4 = book1.clone();
+    book1.setPublishDate(now.minusDays(10));
+    System.out.println("コピー元：" + book1.getPublishDate() + "/コピー先：" + book4.getPublishDate());
   }
 }
