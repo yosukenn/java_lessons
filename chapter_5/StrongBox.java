@@ -5,6 +5,7 @@ public class StrongBox<E> {
   private static E instance;
   // get()メソッドが呼び出されるたびに回数をカウントする
   private static int count;
+  // 鍵の種類によって、必要施錠回数を定める
   private int unlockNum;
   // 鍵の種類を示すフィールド
   private KeyType keyType;
