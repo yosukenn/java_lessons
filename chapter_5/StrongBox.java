@@ -2,7 +2,7 @@
 // 金庫クラスに格納するインスタンスの型は、開発時には未定である
 public class StrongBox<E> {
   // 金庫には、１つのインスタンスを保存できる必要がある
-  private static E instance;
+  private E instance;
   // get()メソッドが呼び出されるたびに回数をカウントする
   private static long count;
   // 鍵の種類によって、必要施錠回数を定める
@@ -38,8 +38,8 @@ public class StrongBox<E> {
       StrongBox.count++;
       return null;
     } else {
-      return this.instance;
       StrongBox.count = 0;
+      return this.instance;
     }
   }
 }
