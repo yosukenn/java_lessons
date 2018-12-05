@@ -12,20 +12,21 @@ public class StrongBox<E> {
   // 鍵の種類を受け取るコンストラクタ
   public StrongBox(KeyType keyType) {
     this.keyType = keyType;
-    switch(this.keyType) {
-      case PADLOCK:
-        this.unlockNum = 1024;
-        break;
-      case BUTTON:
-        this.unlockNum = 10000;
-        break;
-      case DIAL:
-        this.unlockNum = 30000;
-        break;
-      case FINGER:
-        this.unlockNum = 1000000;
-        break;
-    }
+    this.unlockNum = keyType.getUncloclNum();
+    // switch(this.keyType) {
+    //   case PADLOCK:
+    //     this.unlockNum = 1024;
+    //     break;
+    //   case BUTTON:
+    //     this.unlockNum = 10000;
+    //     break;
+    //   case DIAL:
+    //     this.unlockNum = 30000;
+    //     break;
+    //   case FINGER:
+    //     this.unlockNum = 1000000;
+    //     break;
+    // }
   }
   // put()でインスタンスを保存し、get()でインスタンスを取得できる
   public void put(E i) {
