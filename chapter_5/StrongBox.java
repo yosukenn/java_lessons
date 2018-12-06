@@ -12,7 +12,7 @@ public class StrongBox<E> {
   // 鍵の種類を受け取るコンストラクタ
   public StrongBox(KeyType keyType) {
     this.keyType = keyType;
-    this.unlockNum = keyType.getUnclockNum();
+    this.unlockNum = keyType.getUnlockNum();
     // switch(this.keyType) {
     //   case PADLOCK:
     //     this.unlockNum = 1024;

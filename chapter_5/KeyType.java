@@ -9,5 +9,5 @@ enum KeyType {
   private KeyType(long unlockNum) {
     this.unlockNum = unlockNum;
   }
-  public long getUnclockNum() { return this.unlockNum; }
+  public long getUnlockNum() { return this.unlockNum; }
 }
