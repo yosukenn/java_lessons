@@ -26,5 +26,4 @@ public class Book implements Comparable<Book> {
   public int compareTo(Book o) {
     return CompareToBuilder.reflectionCompare(this, o);
   }
-  // clone()を呼び出すと、深いコピーによる複製が行われる
 }
