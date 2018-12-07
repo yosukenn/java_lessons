@@ -1,3 +1,5 @@
+// 起動テスト用
+// $ java Launcher MemoryEater E or I
 public class MemoryEater {
   public static void main(String[] args) {
     System.out.println("要素数1280000のlong型配列を確保します。");
