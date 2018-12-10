@@ -6,26 +6,26 @@ import java.util.zip.GZIPOutputStream;
 // $ java Main [コピー元ファイルパス] [コピー先ファイルパス]
 public class Main {
   public static void main(String[] args) {
+    // コピー元ファイル名とコピー先ファイル名はJavaプログラムの起動パラメータとして指定する
     String inFile = args[0];
     String outFile = args[1];
 
     FileInputStream fis = null;
-    FileOutputStream fos = null;
     GZIPOutputStream gos = null;
-    BufferedOutputStream bos = null;
     try {
       fis = new FileInputStream(inFile);
-      fos = new FileOutputStream(outFile);
-
-      gos = new GZIPOutputStream(fos);
-      bos = new BufferedOutputStream(gos);
+      FileOutputStream fos = new FileOutputStream(outFile);
+      // ファイルの書き込みは必ずバッファリングする
+      BufferedOutputStream bos = new BufferedOutputStream(fos);
+      gos = new GZIPOutputStream(bos);
 
       int i = fis.read();
       while ( i != -1 ) {
-        bos.write(i);
+        // ファイルを書き込む際、java.util.zip.GZIPOutputStreamを使って圧縮する
+        gos.write(i);
         i = fis.read();
       }
-      fos.flush();
+      gos.flush();
     } catch (IOException e) {
       System.out.println(e.getMessage());
     } finally {
@@ -33,8 +33,8 @@ public class Main {
         if (fis != null) {
           fis.close();
         }
-        if (fos != null) {
-          fos.close();
+        if (gos != null) {
+          gos.close();
         }
       } catch (IOException ee) {
 
