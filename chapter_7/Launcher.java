@@ -55,7 +55,7 @@ public class Launcher {
 
   // mainメソッドを呼び出すメソッド
   public static void launchInternal(Class<?> clazz) throws Exception {
-    Method m = clazz.getMethod("main", String[].class); // ここなんで.class付ける？
+    Method m = clazz.getMethod("main", String[].class); // 「メソッド名main, 引数にString[]クラスオブジェクトを持つメソッドを使う」
     String[] args = {};
     m.invoke(null, (Object)args);
   }
