@@ -33,9 +33,9 @@ public class Book implements Comparable<Book> {
   // Bookインスタンスを格納したコレクションに対して、「Collections.sort();」を呼び出すと、発行日が古い順に並び替えられる
   @Override
   public int compareTo(Book o) {
-    // return new CompareToBuilder()
-    //   .append(this.publishDate, o.publishDate)
-    //   .toComparison();
-    return CompareToBuilder.reflectionCompare(this, o);
+    return new CompareToBuilder()
+      .append(this.publishDate, o.publishDate)
+      .toComparison();
+    // return CompareToBuilder.reflectionCompare(this, o);
   }
 }
