@@ -1,4 +1,6 @@
 # Compiled class file
 *.class
+*.jar
 
+# OS
 .DS_Store

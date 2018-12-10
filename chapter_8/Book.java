@@ -12,6 +12,15 @@ public class Book implements Comparable<Book> {
     this.comment = comment;
   }
 
+  // getter. setter は適宜省略
+  public String getTitle() {
+    return this.title;
+  }
+
+  public Date getPublishDate() {
+    return this.publishDate;
+  }
+
   // 署名と発行日とコメントが同じであれば等価なものと判定され、かつ、HashSetなどに格納しても正しく利用できる
   @Override
   public boolean equals(Object o) {
@@ -24,6 +33,9 @@ public class Book implements Comparable<Book> {
   // Bookインスタンスを格納したコレクションに対して、「Collections.sort();」を呼び出すと、発行日が古い順に並び替えられる
   @Override
   public int compareTo(Book o) {
+    // return new CompareToBuilder()
+    //   .append(this.publishDate, o.publishDate)
+    //   .toComparison();
     return CompareToBuilder.reflectionCompare(this, o);
   }
 }
