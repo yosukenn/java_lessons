@@ -22,6 +22,28 @@ public class Main {
           fr.close();
         }
       } catch (IOException ee) {
+
+      }
+    }
+
+    // 10-2
+    // 総務部のリーダー「田中太郎（41歳）」のインスタンスをJVM内に生成した上で、直列化機構を使ってファイル「company.dat」に書き込むプログラムを作成せよ
+    Employee taro = new Employee("田中太郎", 41);
+    Department affairs = new Department("総務部", taro);
+    ObjectOutputStream oos = null;
+    try {
+      FileOutputStream fos = new FileOutputStream("company.dat");
+      oos = new ObjectOutputStream(fos);
+      oos.writeObject(affairs);
+      oos.flush();
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
+    } finally {
+      try {
+        if (oos != null) {
+          oos.close();
+        }
+      } catch(IOException ee) {
         
       }
     }
