@@ -1,4 +1,7 @@
 import java.lang.reflect.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Launcher {
   // コマンドライン引数から、第一引数（起動すべきクラスのFQCN）、第二引数（起動仕方を示す文字；E, I）を受け取る
@@ -45,12 +48,20 @@ public class Launcher {
     System.exit(0);
   }
 
-  // 別プロセスとして軌道するメソッド
+  // 別プロセスとして起動するメソッド
   public static void launchExternal(Class<?> clazz) throws Exception {
     ProcessBuilder pb = new ProcessBuilder(
       "java", clazz.getName());
     Process proc = pb.start();
-    proc.waitFor();
+    InputStreamReader isr = new InputStreamReader(proc.getInputStream(), "UTF-8");
+    BufferedReader reader = new BufferedReader(isr);
+    StringBuilder builder = new StringBuilder();
+    int c;
+    while ((c = reader.read()) != -1) {
+        builder.append((char)c);
+    }
+    System.out.println("result:\n" + builder.toString());
+    System.out.println("Command return code: " + proc.waitFor());
   }
 
   // mainメソッドを呼び出すメソッド
