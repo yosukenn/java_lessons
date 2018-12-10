@@ -52,16 +52,20 @@ public class Launcher {
   public static void launchExternal(Class<?> clazz) throws Exception {
     ProcessBuilder pb = new ProcessBuilder(
       "java", clazz.getName());
+    // プロセス起動
     Process proc = pb.start();
+    // 別プロセスの標準出力を取得、文字列にデコード
     InputStreamReader isr = new InputStreamReader(proc.getInputStream(), "UTF-8");
+    // 文字列をバッファリングしてテキストを効率よく読み込む
     BufferedReader reader = new BufferedReader(isr);
     StringBuilder builder = new StringBuilder();
     int c;
     while ((c = reader.read()) != -1) {
-        builder.append((char)c);
+        builder.append((char)c);  // 読み込んだ文字を格納
     }
     System.out.println("result:\n" + builder.toString());
     System.out.println("Command return code: " + proc.waitFor());
+    // waitFor : 戻り値はこのProcessオブジェクトが表すサブプロセスの終了コード。0は正常終了を示す
   }
 
   // mainメソッドを呼び出すメソッド
