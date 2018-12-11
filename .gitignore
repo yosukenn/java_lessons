@@ -3,7 +3,3 @@
 *.jar
  # OS
 .DS_Store
-# File
-*.txt
-*.properties
-*.dat
