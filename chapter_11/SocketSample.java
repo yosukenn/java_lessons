@@ -5,6 +5,8 @@ import java.io.*;
 
 public class SocketSample {
   public static void main(String[] args) {
+
+    // 例外処理適切？
     try (Socket sock = new Socket("dokojava.jp", 80); InputStream is = sock.getInputStream(); OutputStream os = sock.getOutputStream()) {
       os.write("GET /index.html HTTP/1.0\r\n".getBytes());
       os.write("\r\n".getBytes());

@@ -5,6 +5,7 @@ public class UrlSample {
   public static void main(String[] args) {
     URL url = null;
 
+    // 例外処理適切？
     try {
       url = new URL("http://dokojava.jp");
     } catch(MalformedURLException e) {
