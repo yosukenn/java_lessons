@@ -1,4 +1,5 @@
 // 11-1
+// java.net.URL クラスを使って指定のURLにある画像を取得し、所定の名前で自分のPCに保存する
 import java.net.*;
 import java.io.*;
 

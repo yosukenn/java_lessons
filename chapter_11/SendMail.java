@@ -7,8 +7,8 @@ public class SendMail {
     Socket sock = null;
     try {
       sock = new Socket("smtp.example.com", 60025);
-    } catch (IOException ee) {
-      System.out.println(ee.getMessage());
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
     }
 
     try (BufferedOutputStream bos = new BufferedOutputStream(sock.getOutputStream())) {
