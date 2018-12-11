@@ -4,7 +4,7 @@ import java.sql.*;
 public class JdbcSample {
   public static void main(String[] args) {
     try {
-      Class.forName("org.h2.Driver");
+      Class.forName("org.h2.Driver"); // ドライバーのロード
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
     }
@@ -12,7 +12,7 @@ public class JdbcSample {
     Connection con = null;
     try {
       // STEP 2 : データベースの接続
-      con = DriverManager.getConnection("jdbc:h2:./db/rpgdb");
+      con = DriverManager.getConnection("jdbc:h2:./db/rpgdb"); // Connectionインスタンスの作成 -> DBへの接続
       // STEP 3 : SQL送信処理
 
 
