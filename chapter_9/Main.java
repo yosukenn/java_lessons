@@ -1,23 +1,18 @@
 // 練習問題
 import java.io.*;
 import java.util.zip.GZIPOutputStream;
+import java.nio.file.Files;
 
 // 起動コマンド
 // $ java Main [コピー元ファイルパス] [コピー先ファイルパス]
-public class Main {
+public class Main implements AutoCloseable {
   public static void main(String[] args) {
     // コピー元ファイル名とコピー先ファイル名はJavaプログラムの起動パラメータとして指定する
     String inFile = args[0];
     String outFile = args[1];
 
-    FileInputStream fis = null;
-    GZIPOutputStream gos = null;
-    try {
-      fis = new FileInputStream(inFile);
-      FileOutputStream fos = new FileOutputStream(outFile);
-      // ファイルの書き込みは必ずバッファリングする
-      BufferedOutputStream bos = new BufferedOutputStream(fos);
-      gos = new GZIPOutputStream(bos);
+    try (FileInputStream fis = new FileInputStream(inFile);
+         GZIPOutputStream gos = new GZIPOutputStream(new BufferedOutputStream(new FileOutputStream(outFile)))) {
 
       int i = fis.read();
       while ( i != -1 ) {
@@ -28,18 +23,12 @@ public class Main {
       gos.flush();
     } catch (IOException e) {
       System.out.println(e.getMessage());
-    } finally {
-      try {
-        if (fis != null) {
-          fis.close();
-        }
-        if (gos != null) {
-          gos.close();
-        }
-      } catch (IOException ee) {
-
-      }
     }
 
   }
+
+  @Override
+    public void close() throws IOException {
+        System.out.println("SampleFileReader Close.");
+    }
 }
