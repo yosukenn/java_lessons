@@ -1,12 +1,12 @@
 import java.util.*;
-import java.sql.*;
+// import java.sql.*;
 
 public class Main {
   public static void main(String[] args) {
     System.out.println("１円以上のアイテム一覧表を表示します");
     ArrayList<Item> items = ItemDAO.findByMinimumPrice(1);
     for (Item item : items) {
-      System.out.printf("%10s%4d%4d", item.getName(), item.getPrice(), item.getWeight());
+      System.out.printf("%10s%4d%4d\n", item.getName(), item.getPrice(), item.getWeight());
     }
 
     // 以下はItemsテーブルの作成、アイテム２点の登録
