@@ -7,6 +7,7 @@ public class ItemDAO {
       Class.forName("org.h2.Driver");
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
+      System.exit(1);
     }
 
     Connection con = null;
@@ -16,7 +17,8 @@ public class ItemDAO {
       con.setAutoCommit(false);
 
       // SQL送信
-      PreparedStatement pstmt = con.prepareStatement("SELECT * FROM ITEMS WHERE price > " + price);
+      PreparedStatement pstmt = con.prepareStatement("SELECT * FROM ITEMS WHERE price > ?");
+      pstmt.setInt(1, price);
       ResultSet rs = pstmt.executeQuery();
 
       while (rs.next()) {
@@ -37,16 +39,15 @@ public class ItemDAO {
         con.rollback();
       } catch (SQLException ee) {
         ee.printStackTrace();
-      } finally {
-        if (con != null) {
+      }
+    } finally {
+      if (con != null) {
           try {
             con.close();
           } catch (SQLException eee) {
             eee.printStackTrace();
           }
         }
-      }
-    } finally {
       return items;
     }
   }
