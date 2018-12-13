@@ -13,7 +13,6 @@ public class BankTest {
   public void testSetNameWithTwoChar() {
     Bank bank = new Bank();
     bank.setName("大田");
-    fail();
   }
 
   // Bankの名前にnullをsetするテスト（異常系）
