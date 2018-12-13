@@ -9,8 +9,13 @@ public class AccountTest {
     assertEquals(30000, a.balance);
   }
 
+  // 口座振込のメソッドテスト（正常系）
   @Test public void transfer() {
-
+    Account a = new Account("齋藤", 30000);
+    Account b = new Account("田中", 300);
+    a.transfer(b, 20000);
+    assertEquals(10000, a.balance);
+    assertEquals(20300, b.balance);
   }
 }
 
