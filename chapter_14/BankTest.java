@@ -23,4 +23,10 @@ public class BankTest {
     bank.setName(null);
     fail();
   }
+
+  // コンパイル
+  // $ javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar Bank.java BankTest.java
+
+  // 実行
+  // java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore BankTest
 }
