@@ -5,7 +5,7 @@ public class BankTest {
   // Bankの名前に正常な値をsetするテスト（正常系）
   @Test public void testSetName_ok() {
     Bank bank = new Bank();
-    bank.setName("大田原銀行");
+    bank.setName("大田原");
   }
 
   // Bankの名前に２文字の名前をsetするテスト（異常系）
