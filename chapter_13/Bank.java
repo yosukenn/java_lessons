@@ -1,9 +1,9 @@
 package jp.miyabilink.atm;
 
 /**
- * 銀行クラス。
+ * 銀行クラス。<br>
  * このクラスは、銀行の１支店を表します。
- * @see 田中
+ * @author 田中
  */
 public class Bank {
   /** 支店名 */
